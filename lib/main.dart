@@ -5,46 +5,10 @@ import 'localization.dart';
 import 'app_language.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:background_fetch/background_fetch.dart';
 import 'dart:convert';
 import 'package:location/location.dart';
 
-void backgroundFetchHeadlessTask(String taskId) async {
-  print("[BackgroundFetch] Headless event received: $taskId");
-  DateTime timestamp = DateTime.now();
 
-  Location location = new Location();
-
-  bool _serviceEnabled = await location.serviceEnabled();
-  if (!_serviceEnabled) {
-    BackgroundFetch.finish(taskId);
-    return;
-  }
-
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-
-  List<Map<String, LocationData>> _locationData = [];
-  String json = prefs.getString("locationData");
-  if (json != null) {
-    _locationData = jsonDecode(json).cast<Map<String, LocationData>>();
-  }
-
-  _locationData.insert(0, {timestamp.toString(): await location.getLocation()});
-
-  prefs.setString('locationData', jsonEncode(_locationData));
-
-  BackgroundFetch.finish(taskId);
-
-  if (taskId == 'flutter_background_fetch') {
-    BackgroundFetch.scheduleTask(TaskConfig(
-        taskId: "com.transistorsoft.customtask",
-        delay: 5000,
-        periodic: false,
-        forceAlarmManager: true,
-        stopOnTerminate: false,
-        enableHeadless: true));
-  }
-}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,7 +17,6 @@ void main() async {
   runApp(MyApp(
     appLanguage: appLanguage,
   ));
-  BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
 }
 
 class MyApp extends StatefulWidget {

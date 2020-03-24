@@ -100,6 +100,7 @@ class _QuesScreenState extends State {
             ),
         child: (Scaffold(
             appBar: AppBar(
+              centerTitle: true,
               title: Text(
                 AppLocalizations.of(context).translate("app_title"),
                 style: TextStyle(color: Colors.black87),

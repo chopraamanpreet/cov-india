@@ -138,5 +138,50 @@
     "id": 28,
     "state": "West Bengal",
     "no": 3323412600
+  },
+  {
+    "id": 1,
+    "state": "Andaman and Nicobar Islands",
+    "no": "03192-232102"
+  },
+  {
+    "id": 2,
+    "state": "Chandigarh",
+    "no": 9779558282
+  },
+  {
+    "id": 3,
+    "state": "Dadra and Nagar Haveli and Daman & Diu",
+    "no": 104
+  },
+  {
+    "id": 4,
+    "state": "Delhi",
+    "no": "011-22307145"
+  },
+  {
+    "id": 5,
+    "state": "Jammu",
+    "no": "1912520982"
+  },
+  {
+    "id": 6,
+    "ustatet": "Kashmir",
+    "no": "0194-2440283"
+  },
+  {
+    "id": 7,
+    "state": "Ladakh",
+    "no": 1982256462
+  },
+  {
+    "id": 8,
+    "state": "Lakshadweep",
+    "no": 4896263742
+  },
+  {
+    "id": 9,
+    "state": "Puducherry",
+    "no": 104
   }
 ]
