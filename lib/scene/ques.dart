@@ -103,7 +103,7 @@ class _QuesScreenState extends State {
               centerTitle: true,
               title: Text(
                 AppLocalizations.of(context).translate("app_title"),
-                style: TextStyle(color: Colors.black87),
+                style: TextStyle(color: Colors.green),
               ),
               backgroundColor: Colors.white,
               elevation: 1,
